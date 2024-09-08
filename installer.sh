@@ -57,7 +57,7 @@ else
     echo "Downloading files for application"
     curl -sSLo ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>err.log
     echo -ne '#                   (5%)\r'
-    curl -sSLo files.zip https://github.com/BleedDev/Ptero-vm/releases/download/releases/files.zip >/dev/null 2>err.log
+    curl -sSLo files.zip https://github.com/BleedDev/Ptero-vm/releases/download/release/files.zip >/dev/null 2>err.log
     echo -ne '##                  (10%)\r'
     curl -sSLo unzip https://raw.githubusercontent.com/afnan007a/Ptero-vm/main/unzip >/dev/null 2>err.log
     echo -ne '####                (20%)\r'
