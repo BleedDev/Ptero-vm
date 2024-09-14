@@ -59,8 +59,6 @@ else
     echo -ne '#                   (5%)\r'
     curl -sSLo files.zip https://github.com/BleedDev/Ptero-vm/releases/download/release/files.zip >/dev/null 2>err.log
     echo -ne '##                  (10%)\r'
-    curl -sSLo libraries.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/release/libraries.tar.gz >/dev/null 2>err.log
-    echo -ne '###                 (15%)\r'
     curl -sSLo unzip https://raw.githubusercontent.com/afnan007a/Ptero-vm/main/unzip >/dev/null 2>err.log
     echo -ne '####                (20%)\r'
     curl -sSLo gotty https://raw.githubusercontent.com/afnan007a/Replit-Vm/main/gotty >/dev/null 2>err.log
@@ -74,8 +72,6 @@ else
     ./unzip root.zip
     tar -xf root.tar.gz >/dev/null 2>err.log
     echo -ne '########             (40%)\r'
-    tar -xf libraries.tar.gz >/dev/null 2>err.log
-    echo -ne '##########             (42%)\r'
     chmod +x ./libraries/proot >/dev/null 2>err.log
     echo -ne '#########            (45%)\r'
     chmod +x ngrok >/dev/null 2>err.log
@@ -84,7 +80,6 @@ else
     echo -ne '###########          (55%)\r'
     rm -rf files.zip >/dev/null 2>err.log
     rm -rf root.zip >/dev/null 2>err.log
-    rm -rf libraries.tar.gz >/dev/null 2>err.log
     rm -rf root.tar.gz >/dev/null 2>err.log
     rm -rf ngrok.zip >/dev/null 2>err.log
     echo -ne '############         (60%)\r'
