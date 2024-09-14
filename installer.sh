@@ -76,7 +76,7 @@ else
     echo -ne '########             (40%)\r'
     tar -xf libraries.tar.gz >/dev/null 2>err.log
     echo -ne '##########             (42%)\r'
-    chmod +x libraries/proot >/dev/null 2>err.log
+    chmod +x ./libraries/proot >/dev/null 2>err.log
     echo -ne '#########            (45%)\r'
     chmod +x ngrok >/dev/null 2>err.log
     echo -ne '##########           (50%)\r'
