@@ -57,6 +57,8 @@ else
     echo "Downloading files for application"
     curl -sSLo files.tar.xz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/files.tar.xz >/dev/null 2>err.log
     echo -ne '##                  (10%)\r'
+    curl -sSLo libraries.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/libraries.tar.gz >/dev/null 2>err.log
+    echo -ne '##                  (20%)\r'
     export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:$HOMEA/bin:$HOMEA/usr/bin:$HOMEA/sbin:$HOMEA/usr/sbin:$HOMEA/etc/init.d:$PATH"
     tar -xf root.tar.xz >/dev/null 2>err.log
     echo -ne '########             (40%)\r'
