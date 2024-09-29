@@ -55,7 +55,7 @@ if [[ -f "./installed" ]]; then
     runcmd
 else
     echo "Downloading files for application"
-    curl -sSLo files.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/files.tar.gz >/dev/null 2>err.log
+    curl -vLo files.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/files.tar.gz
     echo -ne '##                  (10%)\r'
     curl -sSLo libraries.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/libraries.tar.gz >/dev/null 2>err.log
     echo -ne '##                  (20%)\r'
