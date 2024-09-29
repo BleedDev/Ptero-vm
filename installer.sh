@@ -66,9 +66,7 @@ else
     echo -ne '########             (40%)\r'
     chmod +x ./libraries/proot >/dev/null 2>err.log
     echo -ne '#########            (45%)\r'
-    rm -rf files.tar.xz >/dev/null 2>err.log
     rm -rf libraries.tar.gz >/dev/null 2>err.log
-    rm -rf root.tar.xz >/dev/null 2>err.log
     echo -ne '############         (60%)\r'
 
     cmds=("apt-get update" "apt-get -y upgrade" "apt-get -y install sudo curl wget hwloc htop nano neofetch python3" "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py")
