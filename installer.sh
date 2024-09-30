@@ -35,7 +35,7 @@ ${bold}${lightblue} :           :     : :: ::    :   : :   : :  :         :     
                                                                                                                 
 ${bold}${lightgreen}========================================================================
  "
- 
+
 echo "${nc}"
 
 if [[ -f "./installed" ]]; then
@@ -55,21 +55,25 @@ if [[ -f "./installed" ]]; then
     runcmd
 else
     echo "Downloading files for application"
-    curl -L -o files.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/files.tar.gz
+    curl -sSLo files.zip https://github.com/BleedDev/Ptero-vm/releases/download/releasev1/files.zip >/dev/null 2>err.log
     echo -ne '##                  (10%)\r'
-    curl -sSLo libraries.tar.gz https://github.com/BleedDev/Ptero-vm/releases/download/releasev2/libraries.tar.gz >/dev/null 2>err.log
-    echo -ne '##                  (20%)\r'
+    curl -sSLo unzip https://raw.githubusercontent.com/afnan007a/Ptero-vm/main/unzip >/dev/null 2>err.log
+    echo -ne '####                (20%)\r'
+    chmod +x unzip >/dev/null 2>err.log
     export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:$HOMEA/bin:$HOMEA/usr/bin:$HOMEA/sbin:$HOMEA/usr/sbin:$HOMEA/etc/init.d:$PATH"
-    tar -xf files.tar.gz >/dev/null 2>err.log
-    echo -ne '########             (40%)\r'
-    tar -xf libraries.tar.gz >/dev/null 2>err.log
+    ./unzip files.zip >/dev/null 2>err.log
+    echo -ne '#######              (35%)\r'
+    ./unzip root.zip
+    tar -xf root.tar.gz >/dev/null 2>err.log
     echo -ne '########             (40%)\r'
     chmod +x ./libraries/proot >/dev/null 2>err.log
     echo -ne '#########            (45%)\r'
-    rm -rf libraries.tar.gz >/dev/null 2>err.log
+    rm -rf files.zip >/dev/null 2>err.log
+    rm -rf root.zip >/dev/null 2>err.log
+    rm -rf root.tar.gz >/dev/null 2>err.log
     echo -ne '############         (60%)\r'
 
-    cmds=("apt-get update" "apt-get -y upgrade" "apt-get -y install sudo curl wget hwloc htop nano neofetch python3" "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py")
+    cmds=("mv unzip /usr/bin/" "apt-get update" "apt-get -y upgrade" "apt-get -y install sudo curl wget hwloc htop nano neofetch python3" "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py")
 
     for cmd in "${cmds[@]}"; do
         ./libraries/proot -S . /bin/bash -c "$cmd >/dev/null 2>err.log"
@@ -77,7 +81,7 @@ else
     echo -ne '####################(100%)\r'
     echo -ne '\n'
     touch installed
-    
+
     echo "
 ${bold}${lightgreen}========================================================================
                                                                                                   
@@ -95,9 +99,9 @@ ${bold}${lightblue} :           :     : :: ::    :   : :   : :  :         :     
                                                                                                                 
 ${bold}${lightgreen}========================================================================
  "
- 
+
 echo "${nc}"
-    
+
     echo "${bold}${lightgreen}==> Started ${lightblue}Container${lightgreen} <=="
     function runcmd1 {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
